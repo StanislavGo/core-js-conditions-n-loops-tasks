@@ -124,8 +124,70 @@ function convertToRomanNumerals(/* num */) {
  *  '10,5'    => 'one zero point five'
  *  '1950.2'  => 'one nine five zero point two'
  */
-function convertNumberToString(/* numberStr */) {
-  throw new Error('Not implemented');
+function convertNumberToString(numberStr) {
+  const digitMap = {
+    0: 'zero',
+    1: 'one',
+    2: 'two',
+    3: 'three',
+    4: 'four',
+    5: 'five',
+    6: 'six',
+    7: 'seven',
+    8: 'eight',
+    9: 'nine',
+    10: 'minus',
+    11: 'point',
+  };
+
+  let result = '';
+  for (let i = 0; i < numberStr.length; i += 1) {
+    const char = numberStr[i];
+
+    switch (char) {
+      case '0':
+        result += `${digitMap[0]} `;
+        break;
+      case '1':
+        result += `${digitMap[1]} `;
+        break;
+      case '2':
+        result += `${digitMap[2]} `;
+        break;
+      case '3':
+        result += `${digitMap[3]} `;
+        break;
+      case '4':
+        result += `${digitMap[4]} `;
+        break;
+      case '5':
+        result += `${digitMap[5]} `;
+        break;
+      case '6':
+        result += `${digitMap[6]} `;
+        break;
+      case '7':
+        result += `${digitMap[7]} `;
+        break;
+      case '8':
+        result += `${digitMap[8]} `;
+        break;
+      case '9':
+        result += `${digitMap[9]} `;
+        break;
+      case '-':
+        result += `${digitMap[10]} `;
+        break;
+      case '.':
+      case ',':
+        result += `${digitMap[11]} `;
+        break;
+      default:
+        break;
+    }
+  }
+
+  return result.trim();
 }
 
 /**
